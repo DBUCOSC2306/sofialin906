@@ -62,7 +62,10 @@ public class LinkedStack<T> implements StackADT<T>
      */
     public T peek() throws EmptyCollectionException
     {
-        // TODOCOSC2306
+        if(isEmpty())
+            throw new EmptyCollectionException();
+            
+        return top.getElement();
     }
 
     /**
@@ -71,7 +74,7 @@ public class LinkedStack<T> implements StackADT<T>
      */
     public boolean isEmpty()
     {
-        // TODOCOSC2306
+        return count <= 0;
     }
  
     /**
@@ -80,7 +83,7 @@ public class LinkedStack<T> implements StackADT<T>
      */
     public int size()
     {
-        // TODOCOSC2306
+        return count;
     }
 
     /**
@@ -89,6 +92,14 @@ public class LinkedStack<T> implements StackADT<T>
      */
     public String toString()
     {
-        // TODOCOSC2306
+        String result = "";
+        LinearNode current = top;
+        
+        whilt(current != null)
+        {
+            result = result + (current.getElement()).toString() + "\n";
+            current = current.getNext();
+        }
+        return result;
     }
 }
